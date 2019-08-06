@@ -2,14 +2,12 @@ require('./config/config.js');
 
 const bodyParser = require('body-parser');
 const express = require('express');
-const logger = require('morgan');
 const path = require('path');
 const users = require('./routes/users');
 const todos = require('./routes/todos');
 
 const app = express();
 
-app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
