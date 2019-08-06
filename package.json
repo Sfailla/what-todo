@@ -13,7 +13,6 @@
 		"client": "cd client && npm start",
 		"build": "cd client && npm run build",
 		"start": "node server/server.js",
-		"heroku-postbuild": "npm run build",
 		"test-watch": "nodemon --exec \"npm test\"",
 		"test": "export NODE_ENV=test || SET \"NODE_ENV=test\" && mocha server/**/*.test.js"
 	},
