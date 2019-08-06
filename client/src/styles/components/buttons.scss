@@ -1,0 +1,24 @@
+.form-button {
+	display: block;
+	border: none;
+	width: 20rem;
+	height: 5rem;
+	color: $white;
+	cursor: pointer;
+	border-radius: 5rem;
+	background-image: linear-gradient(to right, $light-purple, $dark-purple);
+	box-shadow: 1px 4px 1rem rgba($black, .6);
+}
+.circle-button {
+	width: 5rem;
+	height: 5rem;
+	outline: none;
+	border: none;
+	border-radius: 10rem;
+	background-color: white;
+}
+.square-button {
+	background: white;
+	outline: none;
+	border: none;
+}

@@ -1,0 +1,58 @@
+.login {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+
+	@media all and (max-width: 50em) {
+		grid-gap: 2rem;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	&--left-box {
+		width: 100%;
+		padding: 4rem;
+		background: linear-gradient(
+				to bottom,
+				rgba(0, 210, 255, .7),
+				rgba(228, 51, 148, 0.8)
+			),
+			url('./images/login-bg.jpg') no-repeat center / cover;
+		color: $white;
+	}
+
+	&--right-box {
+		width: 100%;
+		height: 100%;
+		padding: 4rem;
+		font-family: 'Lato';
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		position: relative;
+	}
+
+	&__dashboard-button {
+		display: block;
+		width: 10rem;
+		font-size: 2rem;
+		background: transparent;
+		outline: none;
+		border: none;
+		color: royalblue;
+
+		&:disabled {
+			opacity: .3;
+		}
+	}
+
+	&__link {
+		display: block;
+		width: 11rem;
+		position: absolute;
+		top: 13rem;
+		right: 5rem;
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,28 @@
+.text {
+    
+    height: 100%;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__title {
+        font-size: 5rem;
+        font-weight: bold;
+    }
+
+    &__subtitle:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__button {
+        padding-top: 3px;  // temp style
+        font-size: 1.8rem;
+    }
+
+    &__button-wrap {
+        margin: 0 auto;
+        text-decoration: none;
+        display: block;
+        color: white;
+    }
+}

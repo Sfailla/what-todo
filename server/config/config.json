@@ -1,0 +1,16 @@
+{
+	"test": {
+		"PORT": 3000,
+		"MONGOOSE_URI": "mongodb://steve:1234@ds153239.mlab.com:53239/todo-db-test",
+		"JWT_SECRET": "ajdfuqyu45y29af948q3oa48u5a"
+	},
+	"development": {
+		"PORT": 3001,
+		"MONGOOSE_URI": "mongodb://steve:1234@ds233208.mlab.com:33208/todo-db",
+		"JWT_SECRET": "afihaqehyra897yq5ar89y4hrawh"
+	},
+	"production": {
+		"MONGOOSE_URI": "mongodb://steve:1234@ds233208.mlab.com:33208/todo-db",
+		"JWT_SECRET": "afihaqehyra897yq5ar89y4hrawh"
+	}
+}

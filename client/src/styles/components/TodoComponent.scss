@@ -1,0 +1,168 @@
+.todo {
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+	background-color: #f7f7f7;
+	box-shadow: 0 .4rem .8rem rgba($black, .6);
+
+	&__header {
+		padding: 1.5rem 1.2rem;
+		height: 8rem;
+		margin-bottom: 2rem;
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+		border-bottom-right-radius: 1.3rem;
+		border-bottom-left-radius: 0;
+		background-color: var(--forest-green);
+		box-shadow: 0 2px 4px rgba($black, .2);
+		position: relative;
+	}
+
+	&__title {
+		font-size: $medium;
+		color: #7acebc;
+		margin-top: 5rem;
+		text-align: center;
+	}
+
+	&__input {
+		width: 100%;
+		font-size: 1.7rem;
+		height: 5rem;
+		padding: 0 6rem 0 1rem;
+		outline: none;
+		border: none;
+		border-top-left-radius: 1rem;
+		border-bottom-left-radius: 1rem;
+		border-top-right-radius: 10rem;
+		border-bottom-right-radius: 10rem;
+		color: white;
+		background-color: var(--aqua-green);
+
+		&::-webkit-input-placeholder {
+			color: white;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		top: 1.4rem;
+		right: 1.3rem;
+	}
+
+	&__container {
+		width: 100%;
+		padding: 0 1rem;
+	}
+
+	&__todo {
+		width: auto;
+		height: 5rem;
+		padding-left: 1rem;
+		padding-right: 9rem;
+		color: #444040;
+		font-family: 'Patua One';
+		border: none;
+		border-radius: .5rem;
+		margin-bottom: 1rem;
+		background-color: white;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		box-shadow: 0 2px 3px rgba($black, .2);
+		position: relative;
+	}
+
+	&__todoText {
+		font-size: 1.7rem;
+	}
+
+	&__error {
+		width: auto;
+		border: 1px solid #af4442;
+		border-radius: 5px;
+		background-color: rgb(241, 214, 214);
+		color: #af4442;
+		padding: 1rem;
+		text-align: center;
+		margin-bottom: 1.5rem;
+	}
+
+	&__header svg {
+		fill: #25b999;
+		transform: translate(12%, 22%);
+	}
+
+	/*============================================================================
+	REMOVED TODO BUTTON/SVG STYLING
+	============================================================================*/
+
+	&__button-container {
+		width: 10.2rem;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	&__container button {
+		width: 5rem;
+		height: 100%;
+		outline: none;
+		border: none;
+		background: transparent;
+	}
+
+	&__remove:hover > svg path {
+		fill: #e85656;
+	}
+
+	&__remove svg path {
+		fill: grey;
+		transition: fill .4s ease;
+	}
+
+	/*============================================================================
+		COMPLETED TODO BUTTON/SVG STYLING
+	============================================================================*/
+
+	&__completed {
+		position: relative;
+	}
+
+	&__completed::before {
+		content: "";
+		position: absolute;
+		width: 2px;
+		background-color: rgb(215, 225, 228);
+		height: 3rem;
+		left: 0;
+		top: 1rem;
+	}
+
+	&__completed svg {
+		border: 2px solid #25b999;
+		border-radius: 10rem;
+	}
+
+	&__completed:hover svg {
+		transition: all 1s ease-in-out;
+		border: none;
+	}
+
+	&__completed:hover > svg rect {
+		fill: #25b999;
+	}
+
+	&__completed:hover svg path {
+		fill: white;
+	}
+
+	&__completed svg path {
+		fill: #25b999;
+	}
+}
+
+svg.svg--25 rect {
+	fill: none;
+}

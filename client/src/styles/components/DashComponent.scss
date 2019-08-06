@@ -1,0 +1,196 @@
+.dash {
+
+    &__title-container {
+        background: white;
+        height: 3rem;
+        width: 14rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba($black, .6);
+
+        position: absolute;
+        top: 1rem;
+        right: 50%;
+        transform: translateX(50%)
+    }
+
+    &__title {
+        font-size: 2.7rem;
+        font-weight: bold;
+        padding: 5px;
+    }
+
+    &__subtitle {
+        font-size: 1.8rem;
+        color: white;
+    }
+
+    &__wrapper {
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        background-color: #FFFFFF;
+        box-shadow: 0 .4rem .8rem rgba($black, .6);
+    }
+
+    &__header {
+        width: 100%;
+        margin: 0 auto;
+        height: 45%;
+        background: linear-gradient(to bottom right,rgba(122, 206, 188, .4), rgba(86, 67, 250, .4)), 
+                    url('./images/new-card.jpg') no-repeat center center / cover;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        & svg.svg--50 path {
+            fill: var(--light-purple);
+        }
+    }
+    
+    &__button {
+
+        &--logout { 
+            font-size: 1rem;
+            position: absolute;
+            top: -3rem;
+            right: 2rem;
+            box-shadow: 0 3px 7px rgba($black, .5);
+            transition: all 2s ease;
+            
+            & svg.svg--25 {
+                margin-top: 5px;
+                margin-left: 6px;
+            }
+
+            & svg path {
+                fill: $light-purple;
+            }
+
+            &:hover::after {
+                content: "Logout";
+                height: 2rem;
+                color: $dark-purple;
+            }
+        }
+
+        &--remove-all { 
+            display: flex;
+            align-items: center;
+            justify-content: center;          
+            width: 10rem;
+            height: 3rem;
+            color: $light-purple;
+            font-size: 1.4rem;
+            font-weight: bold;
+            box-shadow: 0 3px 7px rgba($black, .5);
+        }
+        &--edit {
+            margin-right: 10rem;
+            color: $dark-blue;
+        }
+    }
+
+    &__svg-span {
+
+        &--user {
+            position: absolute;
+            top: .5rem;
+            left: 2rem;
+        }
+    }
+
+    &__container {
+        width: 100%;
+        height: 55%;
+        margin: 0 auto;
+        background-color: white;
+        position: relative;
+    }
+
+    &__upper-container {
+        margin-left: 2rem;
+        height: 15%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__lower-container {
+        width: 100%;
+        height: 85%;
+        padding: 1rem;
+        background: $white;
+    }
+}
+
+.completed {
+    width: 100%;
+    height: 15%;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__results {
+        width: 100%;
+        height: 85%;
+        margin-top: 1rem;
+        padding: 0 1rem;
+        overflow-y: auto;       
+    }
+
+    &__button-trash {
+        display: inline-block;
+        width: 3rem;
+        background: transparent;
+        outline: none;
+        border: none;
+        position: absolute;
+        top: 4px;
+        right: 1rem;
+    }
+    
+    &__no-todo {
+        margin-top: 5rem;
+        text-align: center;
+    }
+
+    &__div {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    &__div svg path {
+        fill: grey;
+        transition: fill 1s ease;
+    }
+
+    &__div svg:hover path {
+        fill: #E85656;
+        transition: fill 1s ease;
+    }
+
+    &__todo {
+        border: none;
+        width: auto;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        margin-top: 5px;
+        box-shadow: 3px 3px .6rem rgba($black, .5);
+
+        &:not(:last-of-type) {
+            margin-bottom: 1rem;
+        }
+
+        @media all and (max-width: 75em) {
+            height: 4rem;
+        }
+    }
+}
