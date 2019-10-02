@@ -1,4 +1,4 @@
-export default class Authorize {
+class Authorize {
 	register = (email, password) => {
 		return fetch('/users', {
 			headers: {
@@ -6,7 +6,7 @@ export default class Authorize {
 			},
 			method: 'post',
 			body: JSON.stringify({ email, password })
-		}).then((res) => {
+		}).then(res => {
 			return new Promise((resolve, reject) => {
 				if (!res) {
 					return reject();
@@ -24,7 +24,7 @@ export default class Authorize {
 			},
 			method: 'post',
 			body: JSON.stringify({ email, password })
-		}).then((res) => {
+		}).then(res => {
 			return new Promise((resolve, reject) => {
 				if (!res) {
 					return reject();
@@ -43,7 +43,7 @@ export default class Authorize {
 		return fetch(url, {
 			headers,
 			...options
-		}).then((res) => {
+		}).then(res => {
 			return new Promise((resolve, reject) => {
 				if (!res) {
 					return reject();
@@ -59,7 +59,7 @@ export default class Authorize {
 		return !!token;
 	};
 
-	setToken = (token) => {
+	setToken = token => {
 		localStorage.setItem('TOKEN', token);
 	};
 
@@ -78,3 +78,6 @@ export default class Authorize {
 		this.removeToken();
 	};
 }
+
+let authorize = new Authorize();
+export default authorize;

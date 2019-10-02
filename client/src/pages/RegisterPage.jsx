@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import RegisterForm from '../components/Register-Form';
 import TextComponent from '../components/TextComponent';
-import Authorize from '../utils/MyAuth';
+import authorize from '../utils/MyAuth';
 
 export default class RegisterPage extends Component {
 	static defaultProps = {
@@ -21,13 +21,11 @@ export default class RegisterPage extends Component {
 		errors: []
 	};
 
-	Authorize = new Authorize();
-
 	handleOnSubmit = event => {
 		event.preventDefault();
 
 		const { email, password, confPassword } = this.state;
-		const { register, setToken } = this.Authorize;
+		const { register, setToken } = authorize;
 
 		console.log(email, password);
 
@@ -37,7 +35,10 @@ export default class RegisterPage extends Component {
 					.then(res => res.json())
 					.then(data => {
 						setToken(data.tokens[0].token);
-						setTimeout(() => this.props.history.push('/dashboard'), 300);
+						setTimeout(
+							() => this.props.history.push('/dashboard'),
+							300
+						);
 					})
 					.catch(err => console.log(err));
 			} else {
@@ -85,7 +86,9 @@ export default class RegisterPage extends Component {
 					/>
 				</div>
 				<div className="register--right-box">
-					<h1 className="Form-Type register__right-title">Register Here</h1>
+					<h1 className="Form-Type register__right-title">
+						Register Here
+					</h1>
 					{this.state.errors.length ? (
 						this.state.errors.map(error => {
 							return console.error(error);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Authorize from '../utils/MyAuth';
+import authorize from '../utils/MyAuth';
 
 import TodoComponent from '../components/TodoComponent';
 import DashboardComponent from '../components/DashboardComponent';
@@ -14,8 +14,6 @@ export default class Dashboard extends Component {
 		completed: false
 	};
 
-	Authorize = new Authorize();
-
 	handleOnSubmit = event => {
 		event.preventDefault();
 
@@ -24,7 +22,9 @@ export default class Dashboard extends Component {
 		if (!error) {
 			event.target.elements.text.value = '';
 		}
-		this.setState(prevState => ({ errors: [ ...prevState.errors, error ] }));
+		this.setState(prevState => ({
+			errors: [ ...prevState.errors, error ]
+		}));
 	};
 
 	handleOnChange = event => {
@@ -33,7 +33,7 @@ export default class Dashboard extends Component {
 	};
 
 	handleGetTodos = () => {
-		this.Authorize
+		authorize
 			.authFetch('/todos', { method: 'GET' })
 			.then(res => res.json())
 			.then(todo => {
@@ -73,7 +73,7 @@ export default class Dashboard extends Component {
 		) {
 			return `${option} already exists`;
 		} else {
-			this.Authorize
+			authorize
 				.authFetch('/todos', {
 					method: 'POST',
 					body: JSON.stringify({ text: this.state.todoText })
@@ -89,12 +89,14 @@ export default class Dashboard extends Component {
 	};
 
 	handleRemoveTodo = id => {
-		this.Authorize
+		authorize
 			.authFetch(`/todos/${id}`, { method: 'delete' })
 			.then(res => res.json())
 			.then(data => {
 				return this.setState(prevState => ({
-					todos: [ ...prevState.todos ].filter(todo => todo._id !== data._id),
+					todos: [ ...prevState.todos ].filter(
+						todo => todo._id !== data._id
+					),
 					completedTodos: [ ...prevState.completedTodos ].filter(
 						todo => todo._id !== data._id
 					)
@@ -104,26 +106,29 @@ export default class Dashboard extends Component {
 	};
 
 	handleLogOut = () => {
-		this.Authorize.logout();
+		authorize.logout();
 		setTimeout(() => {
 			return this.props.history.push('/login');
 		}, 250);
 	};
 
 	handleRemoveAll = () => {
-		this.Authorize
+		authorize
 			.authFetch(`/todos/removeAll`, {
 				method: 'DELETE'
 			})
 			.then(res => res.json())
 			.then(todo => {
 				const todos = todo.todos;
-				return this.setState(() => ({ todos, completedTodos: todos }));
+				return this.setState(() => ({
+					todos,
+					completedTodos: todos
+				}));
 			});
 	};
 
 	handleCompletedTodos = id => {
-		this.Authorize
+		authorize
 			.authFetch(`/todos/${id}`, {
 				method: 'PATCH',
 				body: JSON.stringify({ completed: true })
@@ -135,7 +140,9 @@ export default class Dashboard extends Component {
 				);
 				filteredTodo.map(todo => {
 					return this.setState(prevState => ({
-						todos: [ ...this.state.todos ].filter(todo => todo._id !== id),
+						todos: [ ...this.state.todos ].filter(
+							todo => todo._id !== id
+						),
 						completedTodos: [ ...prevState.completedTodos, todo ]
 					}));
 				});

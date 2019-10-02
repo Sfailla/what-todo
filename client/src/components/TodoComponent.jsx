@@ -1,8 +1,6 @@
 import React from 'react';
 
 import Todo from './Todo';
-
-// import Flash from '../utils/Flash';
 import { Icon25 } from '../utils/SVGComponent';
 
 const TodoComponent = props => {
@@ -18,7 +16,10 @@ const TodoComponent = props => {
 						onChange={props.handleOnChange}
 						placeholder="please enter text"
 					/>
-					<button type="submit" className="circle-button todo__button">
+					<button
+						type="submit"
+						className="circle-button todo__button"
+					>
 						<Icon25 icon="add" />
 					</button>
 				</div>
@@ -32,7 +33,9 @@ const TodoComponent = props => {
 					})
 				) : null}
 				{!props.todos.length ? (
-					<p className="todo__title">Please enter a Todo to get started!</p>
+					<p className="todo__title">
+						Please enter a Todo to get started!
+					</p>
 				) : (
 					props.todos.length &&
 					props.todos.map(todo => (

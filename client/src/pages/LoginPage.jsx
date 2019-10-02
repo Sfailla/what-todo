@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import LoginForm from '../components/Login-Form';
 import TextComponent from '../components/TextComponent';
-import Authorize from '../utils/MyAuth';
+import authorize from '../utils/MyAuth';
 
 export default class LoginPage extends Component {
 	static defaultProps = {
@@ -20,12 +20,10 @@ export default class LoginPage extends Component {
 		errors: []
 	};
 
-	Authorize = new Authorize();
-
 	handleOnSubmit = event => {
 		event.preventDefault();
 
-		const { login, setToken } = this.Authorize;
+		const { login, setToken } = authorize;
 		const { email, password } = this.state;
 
 		if (email && password) {
@@ -34,7 +32,9 @@ export default class LoginPage extends Component {
 					console.log(res);
 					if (res.status >= 400 || res.status > 350) {
 						let error = 'invalid credentials';
-						this.setState(() => ({ errors: [ ...this.state.errors, error ] }));
+						this.setState(() => ({
+							errors: [ ...this.state.errors, error ]
+						}));
 						this.props.history.push('/login');
 					} else if (res.status >= 200 && res.status <= 350) {
 						return res.json();
@@ -61,7 +61,9 @@ export default class LoginPage extends Component {
 				});
 		} else {
 			let error = 'Please fill out the form';
-			this.setState(prevState => ({ errors: [ ...prevState.errors, error ] }));
+			this.setState(prevState => ({
+				errors: [ ...prevState.errors, error ]
+			}));
 		}
 	};
 
@@ -90,9 +92,14 @@ export default class LoginPage extends Component {
 					/>
 				</div>
 				<div className="login--right-box">
-					<h2 className="Form-Type">Enter email and password to login</h2>
+					<h2 className="Form-Type">
+						Enter email and password to login
+					</h2>
 					<a href="/dashboard" className="login__link">
-						<button className="login__dashboard-button" disabled={!this.Authorize.isLoggedIn()}>
+						<button
+							className="login__dashboard-button"
+							disabled={!authorize.isLoggedIn()}
+						>
 							Dashboard
 						</button>
 					</a>
