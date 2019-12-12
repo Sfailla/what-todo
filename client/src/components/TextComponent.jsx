@@ -3,17 +3,11 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-const TextComponent = ({
-	title,
-	subtitle,
-	location,
-	needButton,
-	footerMessage
-}) => {
+const TextComponent = ({ title, subtitle, location, button }) => {
 	return (
 		<div className="text">
 			<h1 className="text__title">{title}</h1>
-			<div style={{ marginRight: '11rem' }}>
+			<div>
 				{subtitle.length &&
 					subtitle.map((subtitle, index) => {
 						return (
@@ -23,12 +17,14 @@ const TextComponent = ({
 						);
 					})}
 			</div>
-			{needButton ? (
+			{button ? (
 				<Link to={location} className="text__button-wrap">
-					<button className="form-button text__button">{needButton}</button>
+					<button className="form-button text__button">
+						{button}
+					</button>
 				</Link>
 			) : null}
-			<p style={{ textAlign: 'center' }}>{footerMessage}</p>
+			<p style={{ textAlign: 'center' }}>Steven Failla &copy; 2018</p>
 		</div>
 	);
 };
@@ -40,7 +36,10 @@ TextComponent.propTypes = {
 		PropTypes.string
 	]),
 	location: PropTypes.string,
-	needButton: PropTypes.oneOfType([ PropTypes.bool, PropTypes.string ]),
+	needButton: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.string
+	]),
 	footerMessage: PropTypes.string
 };
 

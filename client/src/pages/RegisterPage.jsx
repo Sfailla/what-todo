@@ -27,8 +27,6 @@ export default class RegisterPage extends Component {
 		const { email, password, confPassword } = this.state;
 		const { register, setToken } = authorize;
 
-		console.log(email, password);
-
 		if (email && password && confPassword) {
 			if (this.handleConfirmPassword(password, confPassword)) {
 				register(email, password)
@@ -82,7 +80,6 @@ export default class RegisterPage extends Component {
 						title="What TODO"
 						needButton="LOGIN"
 						location="/login"
-						footerMessage="Steven Failla &copy; 2018"
 					/>
 				</div>
 				<div className="register--right-box">
