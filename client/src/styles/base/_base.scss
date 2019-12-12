@@ -1,37 +1,41 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
-    font-family: 'Roboto','sans-serif';
+	font-size: 62.5%;
 
-    @media all and (max-width: 75em) {
-        font-size: 50%;
-    }
+	@media all and (max-width: 75em) {
+		font-size: 50%;
+	}
 
-    @media all and (max-width: 50em) {
-        font-size: 40%;
-    }
+	@media all and (max-width: 50em) {
+		font-size: 40%;
+	}
 }
 
 body {
-    font-size: 1.8rem;
-    padding: 4rem 0;
-    background-image: linear-gradient(to right, $light-purple, $dark-purple);
+	font-size: 1.8rem;
+	font-family: 'Roboto', 'sans-serif';
+	padding: 4rem 0;
+	background-image: linear-gradient(
+		to right,
+		$light-purple,
+		$dark-purple
+	);
 }
 
 button {
-    width: 10rem;
-    height: 2.5rem;
-    outline: none;
-    cursor: pointer;
+	width: 10rem;
+	height: 2.5rem;
+	outline: none;
+	cursor: pointer;
 }
 
 input {
-    margin: 0 auto;
+	margin: 0 auto;
 }
