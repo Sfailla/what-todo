@@ -8,7 +8,7 @@ import authorize from '../utils/MyAuth';
 export default class RegisterPage extends Component {
 	static defaultProps = {
 		subtitle: [
-			'-this is a todo app that displays an express backend api and authentication using web tokens',
+			'-This is a todo app that displays an express backend api and authentication using web tokens',
 			'-to get started just register and then you will have access to the todo app',
 			'-if you already registered than just click on the button below to login and go straight to the app'
 		]

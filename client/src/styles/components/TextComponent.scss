@@ -9,6 +9,11 @@
 		font-weight: bold;
 	}
 
+	&__subtitle {
+		font-family: 'Lato', sans-serif;
+		font-size: 2rem;
+	}
+
 	&__subtitle:not(:last-child) {
 		margin-bottom: 2rem;
 	}
