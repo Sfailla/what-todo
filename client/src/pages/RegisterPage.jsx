@@ -2,18 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import RegisterForm from '../components/Register-Form';
-import TextComponent from '../components/TextComponent';
 import authorize from '../utils/MyAuth';
 
 export default class RegisterPage extends Component {
-	static defaultProps = {
-		subtitle: [
-			'-This is a todo app that displays an express backend api and authentication using web tokens',
-			'-to get started just register and then you will have access to the todo app',
-			'-if you already registered than just click on the button below to login and go straight to the app'
-		]
-	};
-
 	state = {
 		email: '',
 		password: '',
@@ -74,14 +65,6 @@ export default class RegisterPage extends Component {
 	render() {
 		return (
 			<div className="App-Layout register">
-				<div className="register--left-box">
-					<TextComponent
-						subtitle={this.props.subtitle}
-						title="What TODO"
-						needButton="LOGIN"
-						location="/login"
-					/>
-				</div>
 				<div className="register--right-box">
 					<h1 className="Form-Type register__right-title">
 						Register Here

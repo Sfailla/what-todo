@@ -1,6 +1,6 @@
 .register {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
 
 	@media all and (max-width: 50em) {
@@ -16,7 +16,7 @@
 		background: linear-gradient(
 				to bottom,
 				rgba(royalblue, .9),
-				rgba(crimson, .6)
+				rgba(#314479, .6)
 			),
 			url(./images/main-left-bg.jpg) no-repeat center / cover;
 		font-family: 'Lato';

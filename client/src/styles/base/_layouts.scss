@@ -2,12 +2,11 @@
 	width: 100rem;
 	height: 60rem;
 	margin: 0 auto;
-	margin-top: 5rem;
 	background-color: white;
 	box-shadow: 0 1.5rem 4rem rgba($black, .6);
-
-	@media all and (max-width: 50em) {
-		width: 50rem;
-		height: 120rem;
-	}
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: height .3s linear, width .3s linear;
 }
