@@ -7,6 +7,7 @@ import RegisterPage from '../pages/RegisterPage';
 import LoginPage from '../pages/LoginPage';
 import Dashboard from '../pages/Dashboard';
 import NotFoundPage from '../pages/NotFoundPage';
+import HomePage from '../pages/HomePage';
 
 const checkAuth = () => {
 	const token = localStorage.getItem('TOKEN');
@@ -39,7 +40,8 @@ const AuthRoute = ({ component: Component, ...rest }) => (
 
 const Layout = () => (
 	<Switch>
-		<Route exact path="/" component={RegisterPage} />
+		<Route exact path="/" component={HomePage} />
+		<Route exact path="/register" component={RegisterPage} />
 		<Route exact path="/login" component={LoginPage} />
 		<AuthRoute exact path="/dashboard" component={Dashboard} />
 		<Route component={NotFoundPage} />
