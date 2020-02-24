@@ -3,12 +3,6 @@
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
 
-	@media all and (max-width: 50em) {
-		grid-gap: 2rem;
-		grid-template-columns: 1fr;
-		grid-template-rows: 1fr 1fr;
-	}
-
 	&__title {
 		font-size: 5rem;
 		font-weight: bold;
