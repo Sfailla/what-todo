@@ -1,6 +1,6 @@
 .register {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
 
 	@media all and (max-width: 50em) {
@@ -16,7 +16,7 @@
 		background: linear-gradient(
 				to bottom,
 				rgba(royalblue, .9),
-				rgba(crimson, .6)
+				rgba(#314479, .6)
 			),
 			url(./images/main-left-bg.jpg) no-repeat center / cover;
 		font-family: 'Lato';
@@ -28,5 +28,45 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+	}
+}
+
+.homepage {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+
+	@media all and (max-width: 50em) {
+		grid-gap: 2rem;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	&__title {
+		font-size: 5rem;
+		font-weight: bold;
+		letter-spacing: 3px;
+	}
+
+	&--left-box {
+		padding: 4rem;
+		width: 100%;
+		color: $white;
+		background: linear-gradient(
+				to bottom,
+				rgba(royalblue, .9),
+				rgba(#314479, .6)
+			),
+			url(./images/main-left-bg.jpg) no-repeat center / cover;
+		font-family: 'Lato';
+	}
+
+	&__footer-message {
+		position: fixed;
+		bottom: 15px;
+		left: 50%;
+		transform: translateX(-50%);
+		text-transform: uppercase;
+		letter-spacing: 2px;
 	}
 }

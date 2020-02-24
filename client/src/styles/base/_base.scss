@@ -19,23 +19,23 @@ html {
 }
 
 body {
+	width: 100vw;
+	height: 100vh;
 	font-size: 1.8rem;
 	font-family: 'Roboto', 'sans-serif';
-	padding: 4rem 0;
 	background-image: linear-gradient(
 		to right,
 		$light-purple,
 		$dark-purple
 	);
+	position: relative;
 }
-
 button {
 	width: 10rem;
 	height: 2.5rem;
 	outline: none;
 	cursor: pointer;
 }
-
 input {
 	margin: 0 auto;
 }

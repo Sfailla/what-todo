@@ -1,20 +1,12 @@
 .text {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	padding: 5px;
 
-	&__title {
-		font-size: 5rem;
-		font-weight: bold;
-	}
-
-	&__subtitle {
+	&__message {
 		font-family: 'Lato', sans-serif;
 		font-size: 2rem;
 	}
 
-	&__subtitle:not(:last-child) {
+	&__message:not(:last-child) {
 		margin-bottom: 2rem;
 	}
 
