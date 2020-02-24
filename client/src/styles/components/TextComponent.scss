@@ -9,16 +9,4 @@
 	&__message:not(:last-child) {
 		margin-bottom: 2rem;
 	}
-
-	&__button {
-		padding-top: 3px;
-		font-size: 1.8rem;
-	}
-
-	&__button-wrap {
-		margin: 0 auto;
-		text-decoration: none;
-		display: block;
-		color: white;
-	}
 }

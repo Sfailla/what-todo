@@ -1,4 +1,4 @@
-.register {
+.homepage {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
@@ -9,7 +9,13 @@
 		grid-template-rows: 1fr 1fr;
 	}
 
-	&--left-box {
+	&__title {
+		font-size: 5rem;
+		font-weight: bold;
+		letter-spacing: 3px;
+	}
+
+	&__layout {
 		padding: 4rem;
 		width: 100%;
 		color: $white;
@@ -20,13 +26,27 @@
 			),
 			url(./images/main-left-bg.jpg) no-repeat center / cover;
 		font-family: 'Lato';
-		display: flex;
 	}
 
-	&--right-box {
-		padding: 4rem;
+	&__button-wrapper {
 		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+		justify-content: center;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__register-button:last-child {
+		padding-left: 2rem;
+	}
+
+	&__footer-message {
+		position: fixed;
+		bottom: 15px;
+		left: 50%;
+		transform: translateX(-50%);
+		text-transform: uppercase;
+		letter-spacing: 2px;
 	}
 }
