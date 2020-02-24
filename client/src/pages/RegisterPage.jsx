@@ -76,13 +76,13 @@ export default class RegisterPage extends Component {
 			<div className="App-Layout register">
 				<div className="register--left-box">
 					<TextComponent
-						subtitle={this.props.subtitle}
+						text={this.props.subtitle}
 						title="What TODO"
 						needButton="LOGIN"
 						location="/login"
 					/>
 				</div>
-				<div className="register--right-box">
+				{/* <div className="register--right-box">
 					<h1 className="Form-Type register__right-title">
 						Register Here
 					</h1>
@@ -107,7 +107,7 @@ export default class RegisterPage extends Component {
 						</Link>
 						to login
 					</p>
-				</div>
+				</div> */}
 			</div>
 		);
 	}
