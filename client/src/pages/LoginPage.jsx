@@ -92,7 +92,7 @@ export default class LoginPage extends Component {
 					/>
 				</div>
 				<div className="login--right-box">
-					<h2 className="Form-Type">
+					<h2 className="text-gradient">
 						Enter email and password to login
 					</h2>
 					<a href="/dashboard" className="login__link">
