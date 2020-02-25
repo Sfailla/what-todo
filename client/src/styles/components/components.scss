@@ -1,97 +1,25 @@
 .input-component {
+	&__input-email,
+	&__input-password,
+	&__input-confirm-password {
+		width: 100%;
+		display: block;
+		height: 3rem;
+		border: none;
+		border-bottom: 2px solid $dark-purple;
+		font-size: 1.6rem;
+		font-weight: 500;
+		margin-bottom: 1rem;
+		color: #201e1e;
 
-    &__input-email,
-    &__input-password,
-    &__input-confirm-password {
-        width: 100%;
-        display: block;
-        height: 3rem;
-        border: none;
-        border-bottom: 2px solid $dark-purple;
-        font-size: 1.6rem;
-        font-weight: 500;
-        margin-bottom: 1rem;
-        color: #201e1e;
-        
-        &:focus {
-            outline: none;
-            box-shadow: 0 1rem 2rem rgba($black, .1);
-            border-bottom: 3px solid $dark-purple;
-        }
+		&:focus {
+			outline: none;
+			box-shadow: 0 1rem 2rem rgba($black, .1);
+			border-bottom: 3px solid $dark-purple;
+		}
 
-        &:invalid {
-            border-bottom: 3px solid $invalid-form;
-        }
-    }
+		&:invalid {
+			border-bottom: 3px solid $invalid-form;
+		}
+	}
 }
-
-// .alert {
-
-//     &__error {
-//         width: 100%;
-//         margin: 0 auto;
-//         border-radius: .5rem;
-//         padding: 1rem;
-//         background-color: rgb(241, 214, 214);
-//         color: #AF4442;
-//         border: 1px solid #AF4442;
-//         transition: opacity 500ms ease-in;
-//         position: relative;
-//     }
-
-//     &__error.close {
-//         display: none;
-//     }
-
-//     &__error-button {
-//         width: 2rem;
-//         background: transparent;
-//         outline: none;
-//         border: none;
-//         font-weight: bold;
-//         color: #AF4442;
-//         position: absolute;
-//         top: 1rem;
-//         right: 1rem;        
-//     }
-// }
-
-// .not-active {
-//     display: none;
-// }
-
-// .fade-out {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         opacity: 0;
-//         animation: fade-out 500ms ease-in;
-//         transition: opacity 500ms ease-in;
-// }
-
-// .fade-in {
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         opacity: 1;
-//         animation: fade-in 500ms ease-in;
-//         transition: fade-in 500ms ease-in;
-// }
-
-// @keyframes fade-in {
-//     0% {
-//         opacity: 0;
-//     }
-//     100% {
-//         opacity: 1;
-//     }
-// }
-
-// @keyframes fade-out {
-//     0% {
-//         opacity: 1;
-//     }
-//     100% {
-//         opacity: 0;
-//     }
-// }
