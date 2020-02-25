@@ -15,16 +15,13 @@ const HomePage = () => (
 		<div className="homepage__layout">
 			<h1 className="homepage__title">What TODO</h1>
 			<div className="homepage__button-wrapper">
-				<div className="homepage__register-button">
-					<Link to="/register">
-						<Button name="REGISTER" className="form-button" />
-					</Link>
-				</div>
-				<div className="homepage__register-button">
-					<Link to="/login">
-						<Button name="LOGIN" className="form-button" />
-					</Link>
-				</div>
+				<Link to="/register">
+					<Button name="REGISTER" className="button-gradient" />
+				</Link>
+
+				<Link to="/login">
+					<Button name="LOGIN" className="button-gradient" />
+				</Link>
 			</div>
 			<div className="homepage__footer-message">
 				<p>Steven Failla &copy; 2018</p>
