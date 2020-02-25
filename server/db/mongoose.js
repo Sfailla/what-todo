@@ -6,7 +6,8 @@ mongoose
 	.connect(process.env.MONGOOSE_URI, {
 		useNewUrlParser: true,
 		useFindAndModify: false,
-		useCreateIndex: true
+		useCreateIndex: true,
+		useUnifiedTopology: true
 	})
 	.then(() => console.log('connection to MLAB established...'))
 	.catch(err =>
