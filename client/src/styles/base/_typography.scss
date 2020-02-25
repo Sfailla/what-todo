@@ -1,6 +1,10 @@
-.Form-Type {
-    color: transparent;
-    background-image: linear-gradient(to right, $light-purple, $dark-purple);
-    -webkit-background-clip: text;
-    background-clip: text;
+.text-gradient {
+	color: transparent;
+	background-image: linear-gradient(
+		to right,
+		rgba(204, 43, 94, 1),
+		rgba(117, 58, 136, 1)
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
 }
