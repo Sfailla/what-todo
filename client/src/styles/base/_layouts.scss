@@ -9,4 +9,5 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	transition: height .3s linear, width .3s linear;
+	overflow: hidden;
 }

@@ -50,5 +50,24 @@
 		transform: translateX(-50%);
 		text-transform: uppercase;
 		letter-spacing: 2px;
+		z-index: 5;
+	}
+
+	&__overlay {
+		opacity: 0;
+		z-index: 0;
+		width: 420px;
+		height: 50px;
+		background: crimson;
+		top: 30%;
+		position: relative;
+	}
+	&__overlay.show {
+		opacity: 1;
+		transform: scale(50);
+		transform-origin: center;
+		z-index: 10;
+		position: relative;
+		transition: transform .4s ease-in-out;
 	}
 }
