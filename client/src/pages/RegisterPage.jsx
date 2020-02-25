@@ -66,7 +66,7 @@ export default class RegisterPage extends Component {
 		return (
 			<div className="App-Layout register">
 				<div className="register--right-box">
-					<h1 className="Form-Type register__right-title">
+					<h1 className="register__title text-gradient">
 						Register Here
 					</h1>
 					{this.state.errors.length ? (
