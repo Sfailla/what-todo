@@ -78,7 +78,15 @@ const Layout = () => {
 			<Route
 				exact
 				path="/login"
-				render={props => <LoginPage {...props} />}
+				render={props => (
+					<LoginPage
+						{...props}
+						showOverlay={showOverlay}
+						location={location}
+						setLocation={setLocation}
+						changeOverlayState={changeOverlayState}
+					/>
+				)}
 			/>
 			<AuthRoute
 				exact
