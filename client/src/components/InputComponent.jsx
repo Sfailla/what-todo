@@ -1,15 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputComponent = ({
-	className,
-	placeholder,
-	handleOnChange,
-	label,
-	name,
-	type,
-	value
-}) => {
+const InputComponent = ({ placeholder, handleOnChange, name }) => {
 	return (
 		<label
 			className="text-gradient"
@@ -19,12 +11,12 @@ const InputComponent = ({
 				fontWeight: '600'
 			}}
 		>
-			{label}
+			{name}
 			<input
-				className={className}
-				type={type}
-				name={name}
-				value={value}
+				className="input-component__input"
+				type={name.toLowerCase()}
+				name={name.toLowerCase()}
+				value={name}
 				onChange={handleOnChange}
 				placeholder={placeholder}
 			/>
@@ -35,10 +27,9 @@ const InputComponent = ({
 InputComponent.propTypes = {
 	handleOnChange: PropTypes.func.isRequired,
 	className: PropTypes.string,
-	placeholder: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	type: PropTypes.string.isRequired,
+	placeholder: PropTypes.string,
+	name: PropTypes.string,
+	type: PropTypes.string,
 	value: PropTypes.string
 };
 
