@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import RegisterForm from '../components/Register-Form';
+import Form from '../components/Forms';
+import InputComponent from '../components/InputComponent';
 import authorize from '../utils/MyAuth';
 import DelayLink from '../components/DelayLink';
 import Button from '../components/Button';
@@ -82,7 +83,30 @@ export default class RegisterPage extends Component {
 							return console.error(error);
 						})
 					) : null}
-					<RegisterForm
+
+					<Form
+						className="register-form"
+						handleOnSubmit={this.state.handleOnSubmit}
+					>
+						<InputComponent
+							name="Email"
+							email={this.state.email}
+							handleOnChange={this.state.handleOnChange}
+						/>
+						<InputComponent
+							name="Password"
+							password={this.state.password}
+							placeholder="Password"
+							handleOnChange={this.state.handleOnChange}
+						/>
+						<InputComponent
+							name="Confirm-Password"
+							email={this.state.confPassword}
+							handleOnChange={this.state.handleOnChange}
+						/>
+					</Form>
+
+					{/* <RegisterForm
 						email={this.state.email}
 						errors={this.state.errors}
 						password={this.state.password}
@@ -90,7 +114,7 @@ export default class RegisterPage extends Component {
 						handleOnSubmit={this.handleOnSubmit}
 						handleOnChange={this.handleOnChange}
 						warningPW="always use a secure password"
-					/>
+					/> */}
 					<p style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
 						already registered? click{' '}
 						<DelayLink to="/login" delay={1500}>
