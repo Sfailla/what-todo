@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 import decode from 'jwt-decode';
@@ -38,14 +38,56 @@ const AuthRoute = ({ component: Component, ...rest }) => (
 	/>
 );
 
-const Layout = () => (
-	<Switch>
-		<Route exact path="/" component={HomePage} />
-		<Route exact path="/register" component={RegisterPage} />
-		<Route exact path="/login" component={LoginPage} />
-		<AuthRoute exact path="/dashboard" component={Dashboard} />
-		<Route component={NotFoundPage} />
-	</Switch>
-);
+const Layout = () => {
+	const [ showOverlay, setShowOverlay ] = useState(false);
+	const [ location, setLocation ] = useState(null);
+
+	const changeOverlayState = () => {
+		setShowOverlay(true);
+		setTimeout(() => setShowOverlay(false), 1500);
+	};
+
+	return (
+		<Switch>
+			<Route
+				exact
+				path="/"
+				render={props => (
+					<HomePage
+						{...props}
+						showOverlay={showOverlay}
+						location={location}
+						setLocation={setLocation}
+						changeOverlayState={changeOverlayState}
+					/>
+				)}
+			/>
+			<Route
+				exact
+				path="/register"
+				render={props => (
+					<RegisterPage
+						{...props}
+						showOverlay={showOverlay}
+						location={location}
+						setLocation={setLocation}
+						changeOverlayState={changeOverlayState}
+					/>
+				)}
+			/>
+			<Route
+				exact
+				path="/login"
+				render={props => <LoginPage {...props} />}
+			/>
+			<AuthRoute
+				exact
+				path="/dashboard"
+				render={props => <Dashboard {...props} />}
+			/>
+			<Route component={NotFoundPage} />
+		</Switch>
+	);
+};
 
 export default Layout;
