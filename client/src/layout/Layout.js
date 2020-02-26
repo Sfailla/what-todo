@@ -88,11 +88,7 @@ const Layout = () => {
 					/>
 				)}
 			/>
-			<AuthRoute
-				exact
-				path="/dashboard"
-				render={props => <Dashboard {...props} />}
-			/>
+			<AuthRoute exact path="/dashboard" component={Dashboard} />
 			<Route component={NotFoundPage} />
 		</Switch>
 	);
