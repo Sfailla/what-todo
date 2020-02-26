@@ -108,7 +108,7 @@ export default class Dashboard extends Component {
 	handleLogOut = () => {
 		authorize.logout();
 		setTimeout(() => {
-			return this.props.history.push('/login');
+			return this.props.history.push('/');
 		}, 250);
 	};
 
