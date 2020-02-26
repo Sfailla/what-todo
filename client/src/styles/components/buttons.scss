@@ -25,3 +25,20 @@
 	outline: none;
 	border: none;
 }
+.button-link:active,
+.button-link {
+	background: transparent;
+	outline: none;
+	border: none;
+	width: fit-content;
+	font-family: 'Roboto';
+	font-size: 1.8rem;
+	color: #6666ff;
+	text-decoration: underline;
+}
+.button-link:visited {
+	color: #551a8b;
+}
+.button-link:hover {
+	color: #dd0000;
+}
