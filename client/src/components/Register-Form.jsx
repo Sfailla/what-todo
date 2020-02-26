@@ -12,7 +12,7 @@ const RegisterForm = ({
 	warningPW
 }) => {
 	return (
-		<form className="register-form" onSubmit={handleOnSubmit}>
+		<form className="register__form" onSubmit={handleOnSubmit}>
 			<InputComponent
 				className="input-component__input-email"
 				label="Email"
@@ -54,7 +54,11 @@ const RegisterForm = ({
 			</p>
 			<input
 				className="button-gradient"
-				style={{ fontSize: '1.8rem', marginTop: '6rem' }}
+				style={{
+					fontSize: '1.8rem',
+					marginTop: '6rem',
+					display: 'block'
+				}}
 				type="submit"
 				value="REGISTER"
 			/>
