@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import RegisterForm from '../components/Register-Form';
 import authorize from '../utils/MyAuth';
+import DelayLink from '../components/DelayLink';
+import Button from '../components/Button';
+import Overlay from '../components/Overlay';
 
 export default class RegisterPage extends Component {
 	state = {
@@ -66,6 +68,12 @@ export default class RegisterPage extends Component {
 		return (
 			<div className="App-Layout register">
 				<div className="register--right-box">
+					<Overlay
+						location={this.props.location}
+						showOverlay={this.props.showOverlay}
+						changeOverlayState={this.props.changeOverlayState}
+						setLocation={this.props.setLocation}
+					/>
 					<h1 className="register__title text-gradient">
 						Register Here
 					</h1>
@@ -85,9 +93,16 @@ export default class RegisterPage extends Component {
 					/>
 					<p style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
 						already registered? click{' '}
-						<Link to="/login" style={{ textDecoration: 'none' }}>
-							here {' '}
-						</Link>
+						<DelayLink to="/login" delay={1500}>
+							<Button
+								name="here"
+								className="register__login-button-link"
+								onClick={() => {
+									this.props.setLocation('login');
+									this.props.changeOverlayState();
+								}}
+							/>
+						</DelayLink>{' '}
 						to login
 					</p>
 				</div>
