@@ -96,7 +96,7 @@ export default class RegisterPage extends Component {
 						<DelayLink to="/login" delay={1500}>
 							<Button
 								name="here"
-								className="register__login-button-link"
+								className="button-link"
 								onClick={() => {
 									this.props.setLocation('login');
 									this.props.changeOverlayState();

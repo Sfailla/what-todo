@@ -19,24 +19,4 @@
 	&__title {
 		width: fit-content;
 	}
-
-	&__login-button-link:active,
-	&__login-button-link {
-		background: transparent;
-		outline: none;
-		border: none;
-		width: fit-content;
-		font-family: 'Roboto';
-		font-size: 1.8rem;
-		color: #6666ff;
-		text-decoration: underline;
-	}
-
-	&__login-button-link:visited {
-		color: #551a8b;
-	}
-
-	&__login-button-link:hover {
-		color: #dd0000;
-	}
 }
