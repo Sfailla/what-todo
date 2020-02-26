@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
-import LoginForm from '../components/Login-Form';
-import TextComponent from '../components/TextComponent';
 import authorize from '../utils/MyAuth';
+import DelayLink from '../components/DelayLink';
+import Button from '../components/Button';
+import Overlay from '../components/Overlay';
+import Form from '../components/Forms';
+import InputComponent from '../components/InputComponent';
 
 export default class LoginPage extends Component {
-	static defaultProps = {
-		subtitle: [
-			'-This is the login page for the Todo App, in this app you will be able to create, update, read, or delete todos from a list. enjoy!!',
-			'-If you are logged in the dashboard button will be enabled and you can click it to get back to dashboard'
-		]
-	};
-
 	state = {
 		email: '',
 		password: '',
@@ -36,7 +31,7 @@ export default class LoginPage extends Component {
 							errors: [ ...this.state.errors, error ]
 						}));
 						this.props.history.push('/login');
-					} else if (res.status >= 200 && res.status <= 350) {
+					} else if (res.ok) {
 						return res.json();
 					}
 				})
@@ -83,41 +78,62 @@ export default class LoginPage extends Component {
 	render() {
 		return (
 			<div className="App-Layout login">
-				<div className="login--left-box">
-					<TextComponent
-						title="LOGIN PAGE"
-						subtitle={this.props.subtitle}
-						needButton={false}
-						footerMessage="...You're almost there. Login to get started!"
+				<div className="login__container">
+					<Overlay
+						location={this.props.location}
+						showOverlay={this.props.showOverlay}
 					/>
-				</div>
-				<div className="login--right-box">
-					<h2 className="text-gradient">
-						Enter email and password to login
-					</h2>
-					<a href="/dashboard" className="login__link">
-						<button
+					<h1 className="text-gradient">Login Here</h1>
+					<DelayLink to="/" delay={1499} className="login__link">
+						<Button
+							name="Homepage"
 							className="login__dashboard-button"
-							disabled={!authorize.isLoggedIn()}
-						>
-							Dashboard
-						</button>
-					</a>
+							onClick={() => {
+								this.props.setLocation('homepage');
+								this.props.changeOverlayState();
+							}}
+						/>
+					</DelayLink>
 					{this.state.errors.length ? (
 						this.state.errors.map(error => {
 							return console.error(error);
 						})
 					) : null}
-					<LoginForm
-						email={this.state.email}
-						password={this.state.password}
-						errors={this.state.errors}
-						redirectTo={this.state.redirectTo}
+
+					<Form
+						className="login-form"
 						handleOnSubmit={this.handleOnSubmit}
-						handleOnChange={this.handleOnChange}
-					/>
+					>
+						<InputComponent
+							name="Email"
+							email={this.state.email}
+							handleOnChange={this.handleOnChange}
+						/>
+						<InputComponent
+							name="Password"
+							password={this.state.password}
+							handleOnChange={this.handleOnChange}
+						/>
+
+						<Button
+							type="submit"
+							className="button-gradient login__submit-button"
+							name="Login"
+						/>
+					</Form>
+
 					<p style={{ textAlign: 'center' }}>
-						Are you registered? if not click <Link to="/">here</Link>
+						Are you registered? if not click{' '}
+						<DelayLink to="/register" delay={1499}>
+							<Button
+								onClick={() => {
+									this.props.setLocation('register');
+									this.props.changeOverlayState();
+								}}
+								name="here"
+								className="button-link"
+							/>
+						</DelayLink>
 					</p>
 				</div>
 			</div>
