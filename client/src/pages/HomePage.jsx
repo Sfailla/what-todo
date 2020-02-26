@@ -1,30 +1,27 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+
 import DelayLink from '../components/DelayLink';
-
 import Button from '../components/Button';
+import Overlay from '../components/Overlay';
 
-const HomePage = () => {
-	const [ copied, setCopy ] = useState(false);
-
-	const changeCopyState = () => {
-		setCopy(true);
-		setTimeout(() => setCopy(false), 1500);
-	};
-
+const HomePage = ({
+	showOverlay,
+	location,
+	setLocation,
+	changeOverlayState
+}) => {
 	return (
 		<div className="App-Layout homepage">
 			<div className="homepage__layout">
 				<h1 className="homepage__title">What TODO</h1>
-				<div
-					className={
-						copied ? 'homepage__overlay show' : 'homepage__overlay'
-					}
-				/>
+				<Overlay showOverlay={showOverlay} location={location} />
 				<div className="homepage__button-wrapper">
-					<DelayLink to="/register" delay={1500}>
+					<DelayLink to="/register" delay={1499}>
 						<Button
-							onClick={() => changeCopyState()}
+							onClick={() => {
+								setLocation('REGISTER');
+								changeOverlayState();
+							}}
 							name="REGISTER"
 							className="button-gradient"
 						/>
@@ -32,7 +29,10 @@ const HomePage = () => {
 
 					<DelayLink to="/login" delay={1500}>
 						<Button
-							onClick={() => changeCopyState()}
+							onClick={() => {
+								setLocation('LOGIN');
+								changeOverlayState();
+							}}
 							name="LOGIN"
 							className="button-gradient"
 						/>
