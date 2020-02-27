@@ -78,11 +78,11 @@ export default class LoginPage extends Component {
 	render() {
 		return (
 			<div className="App-Layout login">
+				<Overlay
+					location={this.props.location}
+					showOverlay={this.props.showOverlay}
+				/>
 				<div className="login__container">
-					<Overlay
-						location={this.props.location}
-						showOverlay={this.props.showOverlay}
-					/>
 					<h1 className="text-gradient">Login Here</h1>
 					<DelayLink to="/" delay={1499} className="login__link">
 						<Button
