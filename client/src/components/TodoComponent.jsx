@@ -29,7 +29,6 @@ const TodoComponent = props => {
 				{props.errors.length ? (
 					props.errors.map(error => {
 						return error;
-						// return <Flash msgType="error" message={error} duration={1500} />;
 					})
 				) : null}
 				{!props.todos.length ? (

@@ -3,16 +3,12 @@
 	height: 100%;
 	margin: 0 auto;
 	background-color: #f7f7f7;
-	box-shadow: 0 .4rem .8rem rgba($black, .6);
+	box-shadow: 1px 6px 8px rgba(0, 0, 0, 0.30);
 
 	&__header {
 		padding: 1.5rem 1.2rem;
 		height: 8rem;
 		margin-bottom: 2rem;
-		border-top-right-radius: 0;
-		border-top-left-radius: 0;
-		border-bottom-right-radius: 1.3rem;
-		border-bottom-left-radius: 0;
 		background-color: var(--forest-green);
 		box-shadow: 0 2px 4px rgba($black, .2);
 		position: relative;
