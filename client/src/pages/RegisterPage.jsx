@@ -49,7 +49,6 @@ export default class RegisterPage extends Component {
 
 	handleOnChange = event => {
 		const { name, value } = event.target;
-		console.log({ [name]: value });
 		this.setState(() => ({ [name]: value }));
 	};
 
@@ -57,24 +56,14 @@ export default class RegisterPage extends Component {
 		return password === confirmPassword;
 	};
 
-	componentDidUpdate = prevState => {
-		if (this.state.errors.length) {
-			setTimeout(() => {
-				return this.setState(() => ({ errors: [] }));
-			}, 1500);
-		}
-	};
-
 	render() {
 		return (
 			<div className="App-Layout register">
+				<Overlay
+					location={this.props.location}
+					showOverlay={this.props.showOverlay}
+				/>
 				<div className="register--right-box">
-					<Overlay
-						location={this.props.location}
-						setLocation={this.props.setLocation}
-						showOverlay={this.props.showOverlay}
-						changeOverlayState={this.props.changeOverlayState}
-					/>
 					<h1 className="register__title text-gradient">
 						Register Here
 					</h1>
