@@ -1,22 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputComponent = ({ placeholder, handleOnChange, name }) => {
+const InputComponent = ({
+	placeholder,
+	handleOnChange,
+	name,
+	type,
+	value,
+	label
+}) => {
 	return (
 		<label
-			className="text-gradient"
+			className="register__label"
 			style={{
 				marginBottom: '.5rem',
-				fontSize: '2.3rem',
+				fontSize: '2rem',
 				fontWeight: '600'
 			}}
 		>
-			{name}
+			{label || name}
 			<input
 				className="input-component__input"
-				type={name.toLowerCase()}
-				name={name.toLowerCase()}
-				value={name}
+				type={type}
+				name={label ? name : name.toLowerCase()}
+				value={value}
 				onChange={handleOnChange}
 				placeholder={placeholder}
 			/>
