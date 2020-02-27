@@ -11,18 +11,18 @@ export default class RegisterPage extends Component {
 	state = {
 		email: '',
 		password: '',
-		confPassword: '',
+		confirmPassword: '',
 		errors: []
 	};
 
 	handleOnSubmit = event => {
 		event.preventDefault();
 
-		const { email, password, confPassword } = this.state;
+		const { email, password, confirmPassword } = this.state;
 		const { register, setToken } = authorize;
 
-		if (email && password && confPassword) {
-			if (this.handleConfirmPassword(password, confPassword)) {
+		if (email && password && confirmPassword) {
+			if (this.handleConfirmPassword(password, confirmPassword)) {
 				register(email, password)
 					.then(res => res.json())
 					.then(data => {
@@ -49,12 +49,12 @@ export default class RegisterPage extends Component {
 
 	handleOnChange = event => {
 		const { name, value } = event.target;
+		console.log({ [name]: value });
 		this.setState(() => ({ [name]: value }));
 	};
 
-	handleConfirmPassword = (password, confPassword) => {
-		const checkPW = password === confPassword ? true : false;
-		return checkPW;
+	handleConfirmPassword = (password, confirmPassword) => {
+		return password === confirmPassword;
 	};
 
 	componentDidUpdate = prevState => {
@@ -71,9 +71,9 @@ export default class RegisterPage extends Component {
 				<div className="register--right-box">
 					<Overlay
 						location={this.props.location}
+						setLocation={this.props.setLocation}
 						showOverlay={this.props.showOverlay}
 						changeOverlayState={this.props.changeOverlayState}
-						setLocation={this.props.setLocation}
 					/>
 					<h1 className="register__title text-gradient">
 						Register Here
@@ -86,35 +86,40 @@ export default class RegisterPage extends Component {
 
 					<Form
 						className="register-form"
-						handleOnSubmit={this.state.handleOnSubmit}
+						handleOnSubmit={this.handleOnSubmit}
 					>
 						<InputComponent
 							name="Email"
-							email={this.state.email}
-							handleOnChange={this.state.handleOnChange}
+							type="text"
+							value={this.state.email}
+							placeholder="please enter email"
+							handleOnChange={this.handleOnChange}
 						/>
+
 						<InputComponent
 							name="Password"
-							password={this.state.password}
-							placeholder="Password"
-							handleOnChange={this.state.handleOnChange}
+							type="password"
+							value={this.state.password}
+							placeholder="please enter password"
+							handleOnChange={this.handleOnChange}
 						/>
+
 						<InputComponent
-							name="Confirm-Password"
-							email={this.state.confPassword}
-							handleOnChange={this.state.handleOnChange}
+							name="confirmPassword"
+							label="Confirm Password"
+							type="password"
+							value={this.state.confirmPassword}
+							placeholder="enter confirm password"
+							handleOnChange={this.handleOnChange}
+						/>
+
+						<Button
+							type="submit"
+							className="button-gradient login__submit-button"
+							name="Register"
 						/>
 					</Form>
 
-					{/* <RegisterForm
-						email={this.state.email}
-						errors={this.state.errors}
-						password={this.state.password}
-						confPassword={this.state.confPassword}
-						handleOnSubmit={this.handleOnSubmit}
-						handleOnChange={this.handleOnChange}
-						warningPW="always use a secure password"
-					/> */}
 					<p style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
 						already registered? click{' '}
 						<DelayLink to="/login" delay={1500}>

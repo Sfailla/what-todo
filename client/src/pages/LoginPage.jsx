@@ -106,12 +106,16 @@ export default class LoginPage extends Component {
 					>
 						<InputComponent
 							name="Email"
-							email={this.state.email}
+							type="text"
+							value={this.state.email}
+							placeholder="please enter email"
 							handleOnChange={this.handleOnChange}
 						/>
 						<InputComponent
 							name="Password"
-							password={this.state.password}
+							type="password"
+							value={this.state.password}
+							placeholder="please enter password"
 							handleOnChange={this.handleOnChange}
 						/>
 
