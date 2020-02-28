@@ -14,7 +14,7 @@ const TodoComponent = props => {
 						type="text"
 						name="text"
 						onChange={props.handleOnChange}
-						placeholder="please enter text"
+						placeholder="please enter todo"
 					/>
 					<button
 						type="submit"
