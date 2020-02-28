@@ -39,3 +39,8 @@ button {
 input {
 	margin: 0 auto;
 }
+// removes background when using autofill forms
+input:-webkit-autofill {
+	box-shadow: 0 0 0px 1000px white inset;
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
