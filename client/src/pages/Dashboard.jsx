@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import authorize from '../utils/MyAuth';
 
 import TodoComponent from '../components/TodoComponent';
+import { Icon25, Icon50 } from '../utils/SVGComponent';
+
 import DashboardComponent from '../components/DashboardComponent';
 
 export default class Dashboard extends Component {
@@ -165,7 +167,7 @@ export default class Dashboard extends Component {
 	render() {
 		return (
 			<div className="App-Layout dashboard">
-				<div className="dashboard--left-box">
+				<div className="dashboard__todo-wrapper">
 					<TodoComponent
 						errors={this.state.errors}
 						todos={this.state.todos}
@@ -181,12 +183,26 @@ export default class Dashboard extends Component {
 					/>
 				</div>
 				<div className="dashboard--right-box">
-					<DashboardComponent
+					<div className="dash__upper-container">
+						<button
+							className="circle-button dash__button--logout"
+							onClick={() => this.handleLogOut()}
+						>
+							<Icon25 icon="logout" className="logout" />
+						</button>
+						<button
+							className="square-button dash__button--remove-all"
+							onClick={() => this.handleRemoveAll()}
+						>
+							REMOVE ALL
+						</button>
+					</div>
+					{/* <DashboardComponent
 						handleLogOut={this.handleLogOut}
 						handleRemoveAll={this.handleRemoveAll}
 						handleRemoveTodo={this.handleRemoveTodo}
 						completedTodos={this.state.completedTodos}
-					/>
+					/> */}
 				</div>
 			</div>
 		);
