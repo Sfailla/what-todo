@@ -23,6 +23,7 @@
 		background: white;
 		border-radius: 7px;
 		box-shadow: 1px 8px 14px rgba(0, 0, 0, .4);
+		transition: height .3s ease-in-out, width .3s ease-in-out;
 
 		display: flex;
 		flex-direction: column;
@@ -59,10 +60,11 @@
 	}
 
 	&__link {
-		display: block;
-		width: 11rem;
+		display: inline-block;
+		width: auto;
+		padding: 5px;
 		position: absolute;
-		top: 13rem;
+		top: 8rem;
 		right: 5rem;
 		text-decoration: none;
 	}
