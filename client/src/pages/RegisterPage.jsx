@@ -6,6 +6,7 @@ import authorize from '../utils/MyAuth';
 import DelayLink from '../components/DelayLink';
 import Button from '../components/Button';
 import Overlay from '../components/Overlay';
+import Error from '../components/Errors';
 
 export default class RegisterPage extends Component {
 	state = {
@@ -56,6 +57,14 @@ export default class RegisterPage extends Component {
 		return password === confirmPassword;
 	};
 
+	componentDidUpdate = () => {
+		if (this.state.errors.length) {
+			setTimeout(() => {
+				this.setState(() => ({ errors: [] }));
+			}, 2000);
+		}
+	};
+
 	render() {
 		return (
 			<div className="App-Layout register">
@@ -63,66 +72,73 @@ export default class RegisterPage extends Component {
 					location={this.props.location}
 					showOverlay={this.props.showOverlay}
 				/>
-				<div className="register--right-box">
-					<h1 className="register__title text-gradient">
-						Register Here
-					</h1>
+				<div className="register__wrapper">
+					<div className="register--right-box">
+						<h1 className="register__title text-gradient">
+							Register Here
+						</h1>
+						{this.state.errors.length ? (
+							this.state.errors.map(error => {
+								return console.error(error);
+							})
+						) : null}
+
+						<Form
+							className="register-form"
+							handleOnSubmit={this.handleOnSubmit}
+						>
+							<InputComponent
+								name="Email"
+								type="text"
+								value={this.state.email}
+								placeholder="please enter email"
+								handleOnChange={this.handleOnChange}
+							/>
+
+							<InputComponent
+								name="Password"
+								type="password"
+								value={this.state.password}
+								placeholder="please enter password"
+								handleOnChange={this.handleOnChange}
+							/>
+
+							<InputComponent
+								name="confirmPassword"
+								label="Confirm Password"
+								type="password"
+								value={this.state.confirmPassword}
+								placeholder="enter confirm password"
+								handleOnChange={this.handleOnChange}
+							/>
+
+							<Button
+								type="submit"
+								className="button-gradient login__submit-button"
+								name="Register"
+							/>
+						</Form>
+
+						<p style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
+							already registered? click{' '}
+							<DelayLink to="/login" delay={1500}>
+								<Button
+									name="here"
+									className="button-link"
+									onClick={() => {
+										this.props.setLocation('login');
+										this.props.changeOverlayState();
+									}}
+								/>
+							</DelayLink>{' '}
+							to login
+						</p>
+					</div>
 					{this.state.errors.length ? (
 						this.state.errors.map(error => {
-							return console.error(error);
+							return <Error error={error} key={++this.id} />;
 						})
 					) : null}
-
-					<Form
-						className="register-form"
-						handleOnSubmit={this.handleOnSubmit}
-					>
-						<InputComponent
-							name="Email"
-							type="text"
-							value={this.state.email}
-							placeholder="please enter email"
-							handleOnChange={this.handleOnChange}
-						/>
-
-						<InputComponent
-							name="Password"
-							type="password"
-							value={this.state.password}
-							placeholder="please enter password"
-							handleOnChange={this.handleOnChange}
-						/>
-
-						<InputComponent
-							name="confirmPassword"
-							label="Confirm Password"
-							type="password"
-							value={this.state.confirmPassword}
-							placeholder="enter confirm password"
-							handleOnChange={this.handleOnChange}
-						/>
-
-						<Button
-							type="submit"
-							className="button-gradient login__submit-button"
-							name="Register"
-						/>
-					</Form>
-
-					<p style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
-						already registered? click{' '}
-						<DelayLink to="/login" delay={1500}>
-							<Button
-								name="here"
-								className="button-link"
-								onClick={() => {
-									this.props.setLocation('login');
-									this.props.changeOverlayState();
-								}}
-							/>
-						</DelayLink>{' '}
-						to login
-					</p>
 				</div>
 			</div>
 		);

@@ -65,7 +65,7 @@ export default class LoginPage extends Component {
 		if (this.state.errors.length) {
 			setTimeout(() => {
 				this.setState(() => ({ errors: [] }));
-			}, 1500);
+			}, 2000);
 		}
 	};
 
