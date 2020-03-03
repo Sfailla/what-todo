@@ -1,0 +1,34 @@
+.error {
+	width: 65rem;
+	height: 6rem;
+	background-color: white;
+	border-radius: 3px;
+	border-left: 4px solid #d8000c;
+	margin-top: 2rem;
+	box-shadow: 1px 8px 14px rgba(0, 0, 0, 0.4);
+
+	display: grid;
+	grid-template-columns: 50px 1fr;
+	grid-template-rows: 1fr;
+
+	& svg {
+		justify-self: center;
+		align-self: center;
+		fill: #d8000c;
+	}
+
+	&__wrapper {
+		display: grid;
+	}
+
+	&__title {
+		font-family: 'Lato', sans-serif;
+		font-weight: bold;
+		align-self: end;
+	}
+
+	&__message {
+		font-size: 1.6rem;
+		color: #989898;
+	}
+}
