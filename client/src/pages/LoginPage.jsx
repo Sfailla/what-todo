@@ -6,7 +6,7 @@ import Button from '../components/Button';
 import Overlay from '../components/Overlay';
 import Form from '../components/Forms';
 import InputComponent from '../components/InputComponent';
-import { Icon25 } from '../utils/SVGComponent';
+import Error from '../components/Errors';
 
 export default class LoginPage extends Component {
 	state = {
@@ -132,15 +132,7 @@ export default class LoginPage extends Component {
 					</div>
 					{this.state.errors.length ? (
 						this.state.errors.map(error => {
-							return (
-								<div key={++this.id} className="error">
-									<Icon25 icon="errorClose" className="error__icon" />
-									<div className="error__wrapper">
-										<span className="error__title">Error</span>
-										<span className="error__message">{error}</span>
-									</div>
-								</div>
-							);
+							return <Error error={error} key={++this.id} />;
 						})
 					) : null}
 				</div>
