@@ -6,6 +6,7 @@ import Button from '../components/Button';
 import Overlay from '../components/Overlay';
 import Form from '../components/Forms';
 import InputComponent from '../components/InputComponent';
+import { Icon25 } from '../utils/SVGComponent';
 
 export default class LoginPage extends Component {
 	state = {
@@ -15,6 +16,8 @@ export default class LoginPage extends Component {
 		errors: []
 	};
 
+	static id = 1;
+
 	handleOnSubmit = event => {
 		event.preventDefault();
 
@@ -23,36 +26,27 @@ export default class LoginPage extends Component {
 
 		if (email && password) {
 			login(email, password)
-				.then(res => {
-					console.log(res);
-					if (res.status >= 400 || res.status > 350) {
-						let error = 'invalid credentials';
-						this.setState(() => ({
-							errors: [ ...this.state.errors, error ]
-						}));
-						this.props.history.push('/login');
-					} else if (res.ok) {
-						return res.json();
-					}
-				})
+				.then(res => res.json())
 				.then(data => {
 					try {
-						const token = data.tokens[0].token;
+						const token = data.tokens[0].token || null;
 						if (token) {
 							setToken(token);
 							setTimeout(() => {
 								this.props.history.push('/dashboard');
 							}, 300);
-						} else {
-							this.props.history.push('/login');
 						}
 					} catch (error) {
 						console.log(error);
-						this.props.history.push('/login');
 					}
 				})
 				.catch(err => {
-					if (err) throw err;
+					if (err) {
+						let error = 'invalid credentials';
+						this.setState(prevState => ({
+							errors: [ ...prevState.errors, error ]
+						}));
+					}
 				});
 		} else {
 			let error = 'Please fill out the form';
@@ -67,10 +61,10 @@ export default class LoginPage extends Component {
 		this.setState(() => ({ [name]: value }));
 	};
 
-	componentDidUpdate = prevState => {
-		if (this.state.errors.length > 0) {
+	componentDidUpdate = prevProps => {
+		if (this.state.errors.length) {
 			setTimeout(() => {
-				return this.setState(() => ({ errors: [] }));
+				this.setState(() => ({ errors: [] }));
 			}, 1500);
 		}
 	};
@@ -82,63 +76,73 @@ export default class LoginPage extends Component {
 					location={this.props.location}
 					showOverlay={this.props.showOverlay}
 				/>
-				<div className="login__container">
-					<h1 className="text-gradient">Login Here</h1>
-					<DelayLink to="/" delay={1499} className="login__link">
-						<Button
-							name="Homepage"
-							className="login__dashboard-button"
-							onClick={() => {
-								this.props.setLocation('homepage');
-								this.props.changeOverlayState();
-							}}
-						/>
-					</DelayLink>
-					{this.state.errors.length ? (
-						this.state.errors.map(error => {
-							return console.error(error);
-						})
-					) : null}
-
-					<Form
-						className="login-form"
-						handleOnSubmit={this.handleOnSubmit}
-					>
-						<InputComponent
-							name="Email"
-							type="text"
-							value={this.state.email}
-							placeholder="please enter email"
-							handleOnChange={this.handleOnChange}
-						/>
-						<InputComponent
-							name="Password"
-							type="password"
-							value={this.state.password}
-							placeholder="please enter password"
-							handleOnChange={this.handleOnChange}
-						/>
-
-						<Button
-							type="submit"
-							className="button-gradient login__submit-button"
-							name="Login"
-						/>
-					</Form>
-
-					<p style={{ textAlign: 'center' }}>
-						Are you registered? if not click{' '}
-						<DelayLink to="/register" delay={1499}>
+				<div className="login__login-wrapper">
+					<div className="login__container">
+						<h1 className="text-gradient">Login Here</h1>
+						<DelayLink to="/" delay={1499} className="login__link">
 							<Button
+								name="Homepage"
+								className="login__dashboard-button"
 								onClick={() => {
-									this.props.setLocation('register');
+									this.props.setLocation('homepage');
 									this.props.changeOverlayState();
 								}}
-								name="here"
-								className="button-link"
 							/>
 						</DelayLink>
-					</p>
+
+						<Form
+							className="login-form"
+							handleOnSubmit={this.handleOnSubmit}
+						>
+							<InputComponent
+								name="Email"
+								type="text"
+								value={this.state.email}
+								placeholder="please enter email"
+								handleOnChange={this.handleOnChange}
+							/>
+							<InputComponent
+								name="Password"
+								type="password"
+								value={this.state.password}
+								placeholder="please enter password"
+								handleOnChange={this.handleOnChange}
+							/>
+
+							<Button
+								type="submit"
+								className="button-gradient login__submit-button"
+								name="Login"
+							/>
+						</Form>
+
+						<p style={{ textAlign: 'center' }}>
+							Are you registered? if not click{' '}
+							<DelayLink to="/register" delay={1499}>
+								<Button
+									onClick={() => {
+										this.props.setLocation('register');
+										this.props.changeOverlayState();
+									}}
+									name="here"
+									className="button-link"
+								/>
+							</DelayLink>
+						</p>
+					</div>
+					{this.state.errors.length ? (
+						this.state.errors.map(error => {
+							return (
+								<div key={++this.id} className="error">
+									<Icon25 icon="errorClose" className="error__icon" />
+									<div className="error__wrapper">
+										<span className="error__title">Error</span>
+										<span className="error__message">{error}</span>
+									</div>
+								</div>
+							);
+						})
+					) : null}
 				</div>
 			</div>
 		);
