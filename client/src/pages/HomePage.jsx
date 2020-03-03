@@ -5,9 +5,9 @@ import Button from '../components/Button';
 import Overlay from '../components/Overlay';
 
 const HomePage = ({
-	showOverlay,
 	location,
 	setLocation,
+	showOverlay,
 	changeOverlayState
 }) => {
 	return (
