@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import authorize from '../utils/MyAuth';
 import TodoComponent from '../components/TodoComponent';
-// import { Icon25 } from '../utils/SVGComponent';
+import { Icon25 } from '../utils/SVGComponent';
 
 export default class Dashboard extends Component {
 	state = {
@@ -180,7 +180,7 @@ export default class Dashboard extends Component {
 					/>
 				</div>
 				<div className="dashboard--right-box">
-					{/* <div className="dash__upper-container">
+					<div className="dash__upper-container">
 						<button
 							className="circle-button dash__button--logout"
 							onClick={() => this.handleLogOut()}
@@ -193,7 +193,7 @@ export default class Dashboard extends Component {
 						>
 							REMOVE ALL
 						</button>
-					</div> */}
+					</div>
 					<div className="dashboard__text-wrapper">
 						<h1 className="dashboard__title">Todo Component</h1>
 					</div>
