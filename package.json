@@ -1,7 +1,7 @@
 {
 	"name": "new-todo-app",
 	"version": "1.0.0",
-	"description": "Im creating a react front-end for a todo app tutorial by Andrew Mead",
+	"description": "Im creating a react front-end for a todo app API",
 	"main": "index.js",
 	"engines": {
 		"node": "10.15.1",
