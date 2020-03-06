@@ -37,7 +37,7 @@ export default class LoginPage extends Component {
 							}, 300);
 						}
 					} catch (error) {
-						console.log(error);
+						this.setState({ errors: error });
 					}
 				})
 				.catch(err => {
