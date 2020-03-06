@@ -24,6 +24,12 @@
 	background: white;
 	outline: none;
 	border: none;
+	width: 15rem;
+	height: 3rem;
+	color: #cc2b5e;
+	font-size: 1.4rem;
+	font-weight: bold;
+	box-shadow: 0 3px 7px rgba($black, .5);
 }
 .button-link:active,
 .button-link {
@@ -39,6 +45,7 @@
 .button-link:visited {
 	color: #551a8b;
 }
+
 .button-link:hover {
 	color: #dd0000;
 }
