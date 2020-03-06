@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DelayLink from '../components/DelayLink';
-import Button from '../components/Button';
+import Button from '../components/Buttons';
 import Overlay from '../components/Overlay';
 
 const HomePage = ({

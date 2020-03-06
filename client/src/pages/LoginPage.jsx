@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import authorize from '../utils/MyAuth';
 import DelayLink from '../components/DelayLink';
-import Button from '../components/Button';
+import Button from '../components/Buttons';
 import Overlay from '../components/Overlay';
 import Form from '../components/Forms';
 import InputComponent from '../components/InputComponent';
