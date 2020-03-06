@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import authorize from '../utils/MyAuth';
 import TodoComponent from '../components/TodoComponent';
-import { Icon25 } from '../utils/SVGComponent';
 
 export default class Dashboard extends Component {
 	state = {
