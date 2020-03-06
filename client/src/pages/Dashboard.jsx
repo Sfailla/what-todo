@@ -180,29 +180,29 @@ export default class Dashboard extends Component {
 					/>
 				</div>
 				<div className="dashboard--right-box">
-					<div className="dash__upper-container">
-						<button
-							className="circle-button dash__button--logout"
-							onClick={() => this.handleLogOut()}
-						>
-							<Icon25 icon="logout" className="logout" />
-						</button>
-						<button
-							className="square-button dash__button--remove-all"
-							onClick={() => this.handleRemoveAll()}
-						>
-							REMOVE ALL
-						</button>
+					<div className="dashboard__text-block">
+						<div className="dashboard__text-wrapper">
+							<h1 className="dashboard__title">What TODO...</h1>
+							<p className="dashboard__paragraph">
+								this app is designed to help keep you organized in
+								your day to day.
+							</p>
+						</div>
+						<div className="dashboard__button-wrapper">
+							<button
+								className="square-button dashboard__button--logout"
+								onClick={() => this.handleLogOut()}
+							>
+								LOGOUT
+							</button>
+							<button
+								className="square-button dashboard__button--remove-all"
+								onClick={() => this.handleRemoveAll()}
+							>
+								REMOVE ALL
+							</button>
+						</div>
 					</div>
-					<div className="dashboard__text-wrapper">
-						<h1 className="dashboard__title">Todo Component</h1>
-					</div>
-					{/* <DashboardComponent
-						handleLogOut={this.handleLogOut}
-						handleRemoveAll={this.handleRemoveAll}
-						handleRemoveTodo={this.handleRemoveTodo}
-						completedTodos={this.state.completedTodos}
-					/> */}
 				</div>
 			</div>
 		);
