@@ -4,7 +4,7 @@ import Form from '../components/Forms';
 import InputComponent from '../components/InputComponent';
 import authorize from '../utils/MyAuth';
 import DelayLink from '../components/DelayLink';
-import Button from '../components/Button.jsx';
+import Button from '../components/Buttons';
 import Overlay from '../components/Overlay';
 import Error from '../components/Errors';
 
