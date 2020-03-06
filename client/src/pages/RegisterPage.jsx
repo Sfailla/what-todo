@@ -16,6 +16,8 @@ export default class RegisterPage extends Component {
 		errors: []
 	};
 
+	static id = 1;
+
 	handleOnSubmit = event => {
 		event.preventDefault();
 
