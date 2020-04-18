@@ -121,7 +121,7 @@ export default class RegisterPage extends Component {
 							/>
 						</Form>
 
-						<p style={{ textAlign: 'center', whiteSpace: 'nowrap' }}>
+						<p className="login__footer-message">
 							already registered? click{' '}
 							<DelayLink to="/login" delay={1500}>
 								<Button
