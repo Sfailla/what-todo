@@ -76,7 +76,7 @@ export default class LoginPage extends Component {
 					location={this.props.location}
 					showOverlay={this.props.showOverlay}
 				/>
-				<div className="login__login-wrapper">
+				<div className="login__login-card center-block-absolute">
 					<div className="login__container">
 						<h1 className="text-gradient">Login Here</h1>
 						<DelayLink to="/" delay={1499} className="login__link">

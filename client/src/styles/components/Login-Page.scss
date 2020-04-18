@@ -15,7 +15,7 @@
 		color: $white;
 	}
 
-	&__container {
+	&__login-card {
 		width: 65rem;
 		height: 40rem;
 		padding: 2rem;
@@ -24,17 +24,12 @@
 		border-radius: 3px;
 		box-shadow: 1px 8px 14px rgba(0, 0, 0, .4);
 		transition: height .3s ease-in-out, width .3s ease-in-out;
+	}
 
+	&__container {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-	}
-
-	&__login-wrapper {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 	}
 
 	&__dashboard-button {
