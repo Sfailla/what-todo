@@ -3,17 +3,28 @@
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
 
+	&__card {
+		height: 350px;
+		background: white;
+		width: 600px;
+		padding: 20px;
+		border-radius: 3px;
+		box-shadow: 1px 8px 14px rgba(0, 0, 0, 0.4);
+		display: flex;
+		flex-direction: column;
+	}
+
 	&__title {
 		font-size: 5rem;
 		font-weight: bold;
 		letter-spacing: 3px;
-		font-family: 'Lato';
+		font-family: 'Lato', sans-serif;
+		padding-bottom: 10px;
 	}
 
 	&__layout {
 		padding: 4rem;
 		width: 100%;
-		color: $white;
 		background: linear-gradient(
 				to bottom,
 				rgba(royalblue, .9),
@@ -23,12 +34,7 @@
 	}
 
 	&__button-wrapper {
-		display: flex;
-		justify-content: center;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		// ???
 	}
 
 	&__button-wrapper button {
@@ -44,6 +50,7 @@
 	}
 
 	&__footer-message {
+		color: white;
 		position: fixed;
 		bottom: 15px;
 		left: 50%;
