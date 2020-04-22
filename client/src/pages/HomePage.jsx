@@ -15,7 +15,16 @@ const HomePage = ({
 			<div className="homepage__layout">
 				<Overlay showOverlay={showOverlay} location={location} />
 				<div className="homepage__card center-block-absolute">
-					<h1 className="homepage__title text-gradient">What TODO</h1>
+					<h1 className="homepage__title text-gradient">
+						What TODO?
+					</h1>
+					<div className="homepage__text">
+						<p className="homepage__description">
+							Lorem ipsum dolor sit, amet consectetur adipisicing
+							elit. Corrupti fugit et vero dolorum, unde perspiciatis
+							suscipit consequuntur dolore exercitationem porro!
+						</p>
+					</div>
 					<div className="homepage__button-wrapper">
 						<DelayLink to="/register" delay={1499}>
 							<Button

@@ -22,6 +22,16 @@
 		padding-bottom: 10px;
 	}
 
+	&__text {
+		width: 100%;
+		height: auto;
+		padding: 10px 0px;
+	}
+
+	&__description {
+		color: #505050;
+	}
+
 	&__layout {
 		padding: 4rem;
 		width: 100%;
@@ -34,7 +44,8 @@
 	}
 
 	&__button-wrapper {
-		// ???
+		width: auto;
+		padding-top: 10px;
 	}
 
 	&__button-wrapper button {
@@ -42,6 +53,8 @@
 	}
 
 	&__button-wrapper a {
+		width: 100%;
+		height: 100%;
 		text-decoration: none;
 	}
 
