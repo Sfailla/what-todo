@@ -30,8 +30,8 @@ body {
 	position: relative;
 }
 button {
-	width: 10rem;
-	height: 2.5rem;
+	// width: 10rem;
+	// height: 2.5rem;
 	outline: none;
 	cursor: pointer;
 	letter-spacing: 1.5px;
@@ -39,7 +39,6 @@ button {
 input {
 	margin: 0 auto;
 }
-
 // removes background when using autofill forms
 input:-webkit-autofill {
 	box-shadow: 0 0 0px 1000px white inset;
