@@ -4,22 +4,31 @@
 	grid-template-rows: 1fr;
 
 	&__card {
-		height: 350px;
+		height: 40rem;
 		background: white;
-		width: 600px;
-		padding: 20px;
+		width: 48rem;
+		padding: 2rem;
 		border-radius: 3px;
 		box-shadow: 1px 8px 14px rgba(0, 0, 0, 0.4);
 		display: flex;
 		flex-direction: column;
+		justify-content: space-around;
+		text-align: center;
+	}
+
+	&__svg {
+		width: 5rem;
+		height: 5rem;
+		margin: 0 auto;
 	}
 
 	&__title {
+		width: 100%;
 		font-size: 5rem;
 		font-weight: bold;
-		letter-spacing: 3px;
+		letter-spacing: 6px;
 		font-family: 'Lato', sans-serif;
-		padding-bottom: 10px;
+		padding: 10px 0px;
 	}
 
 	&__text {
@@ -29,6 +38,7 @@
 	}
 
 	&__description {
+		font-size: 2rem;
 		color: #505050;
 	}
 
@@ -49,6 +59,8 @@
 	}
 
 	&__button-wrapper button {
+		width: 100%;
+		display: block;
 		font-size: 2rem;
 	}
 
@@ -58,8 +70,8 @@
 		text-decoration: none;
 	}
 
-	&__button-wrapper a:last-child {
-		padding-left: 2rem;
+	&__button-wrapper button:last-child {
+		margin-top: 2rem;
 	}
 
 	&__footer-message {

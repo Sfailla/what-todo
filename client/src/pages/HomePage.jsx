@@ -3,6 +3,7 @@ import React from 'react';
 import DelayLink from '../components/DelayLink';
 import Button from '../components/Buttons';
 import Overlay from '../components/Overlay';
+import Notebook from '../../src/svg/note-book.svg';
 
 const HomePage = ({
 	location,
@@ -15,14 +16,13 @@ const HomePage = ({
 			<div className="homepage__layout">
 				<Overlay showOverlay={showOverlay} location={location} />
 				<div className="homepage__card center-block-absolute">
+					<img className="homepage__svg" src={Notebook} alt="svg" />
 					<h1 className="homepage__title text-gradient">
-						What TODO?
+						WHAT TODO?
 					</h1>
 					<div className="homepage__text">
 						<p className="homepage__description">
-							Lorem ipsum dolor sit, amet consectetur adipisicing
-							elit. Corrupti fugit et vero dolorum, unde perspiciatis
-							suscipit consequuntur dolore exercitationem porro!
+							keep track of important ideas or errands!
 						</p>
 					</div>
 					<div className="homepage__button-wrapper">
