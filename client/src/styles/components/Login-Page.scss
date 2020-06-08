@@ -1,7 +1,8 @@
 .login {
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 1fr;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	background: linear-gradient(
 			to bottom,
 			rgba(0, 210, 255, .7),
@@ -21,6 +22,7 @@
 		padding: 2rem;
 		font-family: 'Lato';
 		background: white;
+		position: relative;
 
 		border-radius: 3px;
 		box-shadow: 1px 8px 14px rgba(0, 0, 0, .4);
