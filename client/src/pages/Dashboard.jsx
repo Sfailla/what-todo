@@ -148,7 +148,7 @@ export default class Dashboard extends Component {
 			.catch(err => console.log(err));
 	};
 
-	componentDidUpdate = prevState => {
+	componentDidUpdate = () => {
 		if (this.state.errors.length) {
 			setTimeout(() => {
 				return this.setState(() => ({ errors: [] }));
