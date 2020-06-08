@@ -74,7 +74,7 @@ export default class RegisterPage extends Component {
 					location={this.props.location}
 					showOverlay={this.props.showOverlay}
 				/>
-				<div className="register__card center-block-absolute">
+				<div className="register__card">
 					<div className="register__container">
 						<h1 className="register__title text-gradient">
 							Register Here
@@ -136,12 +136,12 @@ export default class RegisterPage extends Component {
 							to login
 						</p>
 					</div>
-					{this.state.errors.length ? (
-						this.state.errors.map(error => {
-							return <Error error={error} key={++this.id} />;
-						})
-					) : null}
 				</div>
+				{this.state.errors.length ? (
+					this.state.errors.map(error => {
+						return <Error error={error} key={++this.id} />;
+					})
+				) : null}
 			</div>
 		);
 	}
