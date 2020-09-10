@@ -1,9 +1,5 @@
 const express = require('express');
 const _ = require('lodash');
-
-const { mongoose } = require('../db/mongoose');
-const { ObjectId } = require('mongoose').Types;
-
 const User = require('../models/user');
 // const Todo = require('../models/todos')
 const authenticate = require('../middleware/authenticate');
